@@ -3,6 +3,7 @@ import './App.css';
 import Book from './component/Book';
 import Button from './component/Button';
 import { ADD_TYPE } from './component/Button';
+import {toast } from 'react-toastify';
 
 const App = () => {
   const [bookName, setBookName] = useState('')
@@ -25,6 +26,8 @@ const App = () => {
 
     //inputdan yaziyi temizler
     setBookName('')
+    //bidirim için
+    toast.success('Kitabliğa yeni kitab eklendi')
 
   };
 
@@ -32,6 +35,8 @@ const App = () => {
   const handleDelete = (deleteId) => {
     const filteredList = bookList.filter((book) => book.id !== deleteId)
     setBookList(filteredList);
+    //bildirim için
+    toast.error('Kitabliktan bir kitab silindi')
   }
 
 
@@ -66,6 +71,8 @@ const updateBook={...book,bookTitle:newTitle}
 const newList=
 bookList.map((book)=>book.id !== updateBook.id ? book:updateBook)
 setBookList(newList)
+//bidirim ver
+toast.info('Kitab adı güncellendi')
 }
 
   return (
