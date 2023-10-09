@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import './App.css';
 import Book from './component/Book';
 import Button from './component/Button';
 import { ADD_TYPE } from './component/Button';
-import {toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 
 const App = () => {
   const [bookName, setBookName] = useState('')
@@ -64,19 +63,19 @@ const App = () => {
     });
   };
 
-// Düzenlenen kitab ismini kaydeden Fonksiyonu
-const handleEdit=(book,newTitle)=>{
-const updateBook={...book,bookTitle:newTitle}
-//kitablar dizisini guncelleme
-const newList=
-bookList.map((book)=>book.id !== updateBook.id ? book:updateBook)
-setBookList(newList)
-//bidirim ver
-toast.info('Kitab adı güncellendi')
-}
+  // Düzenlenen kitab ismini kaydeden Fonksiyonu
+  const handleEdit = (book, newTitle) => {
+    const updateBook = { ...book, bookTitle: newTitle }
+    //kitablar dizisini guncelleme
+    const newList =
+      bookList.map((book) => book.id !== updateBook.id ? book : updateBook)
+    setBookList(newList)
+    //bidirim ver
+    toast.info('Kitab adı güncellendi')
+  }
 
   return (
-    <div> 
+    <div>
 
       <header className='bg-dark text-light py-2 text-center fs-5'>Kitab Kurdu</header>
 
